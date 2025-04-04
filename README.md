@@ -37,7 +37,8 @@ between LLM agents.
   make test
   ```
 
-- Run specific tests for the Martian module:
+- Run specific tests for some modules:
   ```bash
   make test.martian
+  make test.tts
   ```

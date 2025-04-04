@@ -1,3 +1,5 @@
+# =============================================================================
+
 # Setup the initial environment by pulling the llama model
 setup:
 	ollama pull llama3.2:1b
@@ -10,6 +12,8 @@ requirements.install:
 # Initialize the project setup and install requirements
 init: setup requirements.install
 
+# =============================================================================
+
 # Run pre-commit checks on all files
 pre-commit.run:
 	pre-commit run --all-files
@@ -19,13 +23,21 @@ pre-commit.run:
 pre-commit.update:
 	pre-commit autoupdate
 
+# =============================================================================
+
 # Run all tests with detailed output
 test:
 	python -m pytest -vv
 
+# Run specific tests with detailed output for the TTS module
+test.tts:
+	python -m pytest -s -vv tests/test_tts.py
+
 # Run specific tests with detailed output for the Martian module
 test.martian:
 	python -m pytest -s -vv tests/test_martian.py
+
+# =============================================================================
 
 # Execute the main program
 run:
