@@ -10,3 +10,6 @@ langchain-community
 
 # TTS
 pyttsx3
+
+# Jupyter notebook
+notebook
