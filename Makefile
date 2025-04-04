@@ -48,6 +48,14 @@ test.martian:
 		-vv \
 		tests/test_martian.py
 
+# Run specific tests with detailed output for the Translator module
+test.translator:
+	python -m pytest \
+		-s \
+		--log-cli-level=DEBUG \
+		-vv \
+		tests/test_translator.py
+
 # =============================================================================
 
 # Execute the main program

@@ -41,4 +41,5 @@ between LLM agents.
   ```bash
   make test.martian
   make test.tts
+  make test.translator
   ```
