@@ -65,3 +65,13 @@ run:
 # Run the main program and redirect output to a log file
 run_with_log:
 	$(MAKE) run > /tmp/output.log 2>&1
+
+# =============================================================================
+
+notebooks.run:
+	jupyter lab \
+		--ip=0.0.0.0 \
+		--port=9088 \
+		--allow-root \
+		--NotebookApp.token='' \
+		--NotebookApp.password=''
