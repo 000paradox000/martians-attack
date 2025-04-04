@@ -8,4 +8,6 @@ def test_speak() -> None:
     """
     msg: str = "Hola equipo les deseo un excelente día."
     tts: TTS = TTS()
+    tts.start()
     tts.speak(msg)
+    tts.stop()
