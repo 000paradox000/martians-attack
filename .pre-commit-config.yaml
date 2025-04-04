@@ -1,0 +1,50 @@
+exclude: "(ui\/.*py$|nltk_data|src/data_ingestion/nmgb/files)"
+
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v5.0.0
+      hooks:
+          # Ensures the code is syntactically correct
+          - id: check-ast
+            language_version: python3
+          # Ensures a file name will resolve on all platform
+          - id: check-case-conflict
+          # Checks files with the execute bit set have shebangs
+          - id: check-executables-have-shebangs
+          # Ensure there's no incomplete merges
+          - id: check-merge-conflict
+          # Adds an empty line if missing at the end of a file.
+          - id: end-of-file-fixer
+          # Makes sure requirements.txt is properly formatted
+          # - id: requirements-txt-fixer
+          # Removes trailing whitespaces.
+          - id: trailing-whitespace
+          # Control YAML format
+          - id: check-yaml
+          # Control JSON format
+          - id: check-json
+          # Check files size to add only 500ko max
+          - id: check-added-large-files
+            args:
+                - "--maxkb=100000"
+          # Detect private keys
+          - id: detect-private-key
+    # Leave black at the bottom so all touchups are done before it is run.
+    - repo: https://github.com/ambv/black
+      rev: 25.1.0
+      hooks:
+          - id: black
+            language_version: python3
+            args:
+                - "--line-length=79"
+    - repo: https://github.com/pycqa/flake8
+      rev: 7.2.0
+      hooks:
+          - id: flake8
+            args:
+                - "--max-line-length=79"
+                - "--ignore=E402"
+            additional_dependencies:
+                - flake8-bugbear
+                - flake8-comprehensions
+                - flake8-simplify

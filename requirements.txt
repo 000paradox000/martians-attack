@@ -1,0 +1,12 @@
+# Dev
+pytest
+pre-commit
+
+# GenAI
+ollama
+langchain
+langchain-ollama
+langchain-community
+
+# TTS
+pyttsx3
