@@ -4,6 +4,14 @@ from libs.translator import Translator
 from libs.tts import TTS
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
 
 
 class Handler:
@@ -12,13 +20,21 @@ class Handler:
         self.tts = TTS()
 
     def start(self):
-        self.invoke(query="hola", print_output=True)
+        self.invoke(query="hola", print_output=True, speak=True)
         logger.debug("=" * 50)
-        self.invoke(query="eres alérgico a algún alimento?", print_output=True)
+        self.invoke(
+            query="eres alérgico a algún alimento?",
+            print_output=True,
+            speak=True,
+        )
         logger.debug("=" * 50)
-        self.invoke(query="hola", print_output=True)
+        self.invoke(query="hola", print_output=True, speak=True)
         logger.debug("=" * 50)
-        self.invoke(query="eres alérgico a algún alimento?", print_output=True)
+        self.invoke(
+            query="eres alérgico a algún alimento?",
+            print_output=True,
+            speak=True,
+        )
 
     def stop(self):
         self.tts.stop()
