@@ -1,0 +1,36 @@
+# Setup the initial environment by pulling the llama model
+setup:
+	ollama pull llama3.2:1b
+
+# Install necessary Python packages
+requirements.install:
+	pip install -U pip
+	pip install -r requirements.txt
+
+# Initialize the project setup and install requirements
+init: setup requirements.install
+
+# Run pre-commit checks on all files
+pre-commit.run:
+	pre-commit run --all-files
+	pre-commit run --all-files
+
+# Update pre-commit hooks
+pre-commit.update:
+	pre-commit autoupdate
+
+# Run all tests with detailed output
+test:
+	python -m pytest -vv
+
+# Run specific tests with detailed output for the Martian module
+test.martian:
+	python -m pytest -s -vv tests/test_martian.py
+
+# Execute the main program
+run:
+	@python main.py
+
+# Run the main program and redirect output to a log file
+run_with_log:
+	$(MAKE) run > /tmp/output.log 2>&1
