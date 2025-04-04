@@ -68,6 +68,7 @@ run_with_log:
 
 # =============================================================================
 
+# Run jupyter notebook
 notebooks.run:
 	jupyter lab \
 		--ip=0.0.0.0 \
@@ -75,3 +76,12 @@ notebooks.run:
 		--allow-root \
 		--NotebookApp.token='' \
 		--NotebookApp.password=''
+
+# =============================================================================
+
+# Run in docker
+docker.up:
+	docker-compose up --build
+
+docker.down:
+	docker-compose down --volumes --remove-orphans

@@ -43,3 +43,19 @@ between LLM agents.
   make test.tts
   make test.translator
   ```
+
+## Run in jupyter notebook
+
+  ```bash
+  make notebooks.run
+  ```
+
+## Run in docker
+
+  ```bash
+  make docker.up
+  ```
+
+  ```bash
+  make docker.down
+  ```
