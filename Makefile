@@ -27,15 +27,26 @@ pre-commit.update:
 
 # Run all tests with detailed output
 test:
-	python -m pytest -vv
+	python -m pytest \
+		-vv \
+		-s \
+		--log-cli-level=DEBUG \
 
 # Run specific tests with detailed output for the TTS module
 test.tts:
-	python -m pytest -s -vv tests/test_tts.py
+	python -m pytest \
+		-s \
+		--log-cli-level=DEBUG \
+		-vv \
+		tests/test_tts.py
 
 # Run specific tests with detailed output for the Martian module
 test.martian:
-	python -m pytest -s -vv tests/test_martian.py
+	python -m pytest \
+		-s \
+		--log-cli-level=DEBUG \
+		-vv \
+		tests/test_martian.py
 
 # =============================================================================
 
